@@ -13,7 +13,7 @@ void	swap_stack_a(long *pile_a, int *nums_in_a)
 		nums_in_a[1] = temp[0];
 	}
 	free(temp);
-	write(1, "Swap Stack A\n", 14);
+	write(1, "sa\n", 3);
 }
 
 /*	Swap the first two elements in the pile B. */
@@ -29,7 +29,7 @@ void	swap_stack_b(long *pile_b, int *nums_in_b)
 		pile_b[1] = temp[0];
 	}
 	free(temp);
-	write(1, "Swap Stack B\n", 14);
+	write(1, "sb\n", 3);
 }
 
 /*	Swap the first elements in the piles A and B. */
@@ -51,5 +51,5 @@ void	swap_stack_a_and_stack_b(long *pile_a, long *pile_b, int *nums_in_a, int *n
 		pile_b[1] = temp[0];
 	}
 	free(temp);
-	write(1, "Swap both Stack A and B", 24);
+	write(1, "ss\n", 3);
 }
