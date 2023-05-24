@@ -2,6 +2,8 @@ NAME = push_swap
 
 CC = gcc
 
+HEADER = -I inc
+
 FLAGS = -Wall -Wextra -Werror
 
 SOURCE = src/op/*.c\
@@ -10,7 +12,7 @@ SOURCE = src/op/*.c\
 			src/main.c 
 
 $(NAME):
-	$(CC) $(FLAGS) $(SOURCE) - Iincludes -o $(NAME)
+	$(CC) $(FLAGS) $(SOURCE) $(HEADER) -o $(NAME)
 
 all: $(NAME)
 
