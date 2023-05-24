@@ -20,7 +20,7 @@ void	push_stack_a(long *pile_a, long *pile_b, int *num_in_a, int *num_in_b)
 		i++;
 	}
 	(*num_in_b)--;
-	if (*num_in_b == 0);
+	if (*num_in_b == 0)
 		pile_b = NULL;
 	write(1, "Push Stack A\n", 14);
 }

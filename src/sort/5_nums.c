@@ -47,8 +47,8 @@ void	second_stack(long *pile_a, long *pile_b, int *num_in_a, int *num_in_b)
 	{
 		reverse_rotate_stack_a(pile_a, num_in_a);
 		push_stack_a(pile_a, pile_b, num_in_a, num_in_b);
-		rotate_stack_a(pile_a, num_in_a);
-		rotate_stack_a(pile_a, num_in_a);
+		rotate_pile_a(pile_a, num_in_a);
+		rotate_pile_a(pile_a, num_in_a);
 	}
 	else if (pile_b[0] > pile_a[3])
 	{

@@ -39,10 +39,10 @@ static char	*word_dup(const char *str, int start, int finish)
 }
 
 /*	Split the string into arrays using the delimiter character. */
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 	int		index;
 	char	**split;
 

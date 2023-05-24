@@ -109,7 +109,7 @@ int	separating_input_numbers(long *pile_a, int *num_in_a, char **argv)
 	}
 	if (repeated_numbers(pile_a, num_in_a[1]) == -1)
 		return (-1);
-	if (number_limits (pile_a, num_in_a[1]) == -1)
+	if (number_limit (pile_a, num_in_a[1]) == -1)
 		return (-1);
 	return (0);
 }

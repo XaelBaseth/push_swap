@@ -10,7 +10,7 @@ void	free_and_exit_with_error(int *nums_in_a, int *nums_in_b)
 }
 
 /*	Ensure that given parameters are correct (2 parameters, list of integers). */
-void	check_params(int argc, char **argv, int nums_in_a, int nums_in_b)
+void	check_params(int argc, char **argv, int *nums_in_a, int *nums_in_b)
 {
 	int i;
 	int j;
@@ -64,7 +64,7 @@ int	main(int argc, char **argv)
 	set_numbers(nums_in_a, nums_in_b, argc);
 	pile_a = (long *)malloc(sizeof(long) * stack_size(argc, argv));
 	pile_b = (long *)malloc(sizeof(long) * stack_size(argc, argv));
-	if ((separating_input_numbers(pile_a, pile_b, argv) == -1) || (is_stack_sorted(pile_a, nums_in_a) == 0))
+	if ((separating_input_numbers(pile_a, nums_in_a, argv) == -1) || (is_stack_sorted(pile_a, nums_in_a) == 0))
 		free_stack(pile_a, pile_b, nums_in_a, nums_in_b);
 	if ((nums_in_a[1] == 2) && (pile_a[0] > pile_a[1]))
 		rotate_pile_a(pile_a, nums_in_a);

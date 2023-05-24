@@ -34,7 +34,7 @@ int	stack_size(int argc, char **argv)
 }
 
 /*	Check for every duplicated number. */
-int	repeated_numbers(long *pile_a, int *num_in_a)
+int	repeated_numbers(long *pile_a, int num_in_a)
 {
 	int	i;
 	int	j;
@@ -46,7 +46,7 @@ int	repeated_numbers(long *pile_a, int *num_in_a)
 		j = 0;
 		while (j < num_in_a)
 		{
-			if ((num_in_a[i] == num_in_a[j]) && i != j)
+			if ((pile_a[i] == pile_a[j]) && i != j)
 			{
 				write(1, "Error\n", 6);
 				return (-1);
@@ -59,12 +59,12 @@ int	repeated_numbers(long *pile_a, int *num_in_a)
 }
 
 /* Check that every number is a int. */
-int	number_limit(long *pile_a, int *num_in_a)
+int	number_limit(long *pile_a, int num_in_a)
 {
 	int	i;
 
 	i = 0;
-	while (i <num_in_a)
+	while (i < num_in_a)
 	{
 		if ((pile_a[i] > INT_MAX) ||(pile_a[i] < INT_MIN))
 		{

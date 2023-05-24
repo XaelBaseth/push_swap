@@ -35,7 +35,7 @@ int	is_stack_sorted(long *pile_a, int *num_in_a)
 }
 
 /*	Free the everything and exit the program. */
-void	free_stack(long *pile_a, long *pile_b, int *num_in_a, int num_in_b)
+void	free_stack(long *pile_a, long *pile_b, int *num_in_a, int *num_in_b)
 {
 	free(pile_a);
 	free(pile_b);
