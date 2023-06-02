@@ -1,42 +1,80 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: acharlot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/01 08:19:46 by acharlot          #+#    #+#             */
+/*   Updated: 2023/06/01 08:19:55 by acharlot         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
-# include <stdio.h>
-# include <limits.h>
-# include <unistd.h>
 
-int	ft_strlen(char *str);
-int	ft_atoi(char *str);
-int	ft_isdigit(int i);
-int	stack_size(int argc, char **argv);
-int	number_limit(long *pile_a, int num_in_a);
-int	repeated_numbers(long *pile_a, int num_in_a);
-int	separating_input_numbers(long *pile_a, int *num_in_a, char **argv);
-int	standard_input(long *pile_a, int *num_in_a, char **argv);
-int	number_input(long *pile_a, int *num_in_a, char **argv, char **num_list);
-int	is_stack_sorted(long *pile_a, int *num_in_a);
-int	is_only_number_in_stack(char *num);
+typedef struct s_stacks
+{
+	int	*a;
+	int	*b;
+	int	size_a;
+	int	size_b;
+}	t_stacks;
 
-void	free_string(char **str);
-void	free_stack(long *pile_a, long *pile_b, int *num_in_a, int *num_in_b);
+# define ASCENDING 0
+# define DESCENDING 1
+# define FLG 0
+# define STACK 1
 
-void	rotate_pile_a(long *pile_a, int *nums_in_a);
-void	rotate_pile_b(long *pile_b, int *nums_in_b);
-void	rotate_pile_a_and_pile_b(long *pile_a, long *pile_b, int *nums_in_a, int *nums_in_b);
-void	swap_stack_a(long *pile_a, int *nums_in_a);
-void	swap_stack_b(long *pile_b, int *nums_in_b);
-void	swap_stack_a_and_stack_b(long *pile_a, long *pile_b, int *nums_in_a, int *nums_in_b);
-void	reverse_rotate_stack_a(long *pile_a, int *nums_in_a);
-void	reverse_rotate_stack_b(long *pile_b, int *nums_in_b);
-void	reverse_rotate_stack_a_and_stack_b(long *pile_a, long *pile_b, int *nums_in_a, int *nums_in_b);
-void	push_stack_a(long *pile_a, long *pile_b, int *num_in_a, int *num_in_b);
-void	push_stack_b(long *pile_a, long *pile_b, int *num_in_a, int *num_in_b);
+//Misc
 
-void	sort_3_numbers(long *pile_a, int *nums_in_a);
-void	sort_5_numbers(long *pile_a, long *pile_b, int *num_in_a, int *num_in_b);
-void	sort_beyond_3_and_5_numbers(long *pile_a, long *pile_b, int *num_in_a, int *num_in_b);
+void	ft_push_swap(char **argv);
+void	ft_error(int *stack);
+void	ft_check_repeat(int *stack, int size);
+int		ft_ps_atoi(char *str, int *stack);
+int		ft_ps_strlen(char **argv);
+int		ft_check_sorted(int *stack, int size, int order);
 
-char	**ft_split(char *s, char c);
+//Operations
+
+void	ft_sa(t_stacks *stack, int print);
+void	ft_sb(t_stacks *stack, int print);
+void	ft_ss(t_stacks *stack, int print);
+void	ft_ra(t_stacks *stack, int print);
+void	ft_rb(t_stacks *stack, int print);
+void	ft_rr(t_stacks *stack, int print);
+void	ft_rra(t_stacks *stack, int print);
+void	ft_rrb(t_stacks *stack, int print);
+void	ft_rrr(t_stacks *stack, int print);
+void	ft_pa(t_stacks *stack, int print);
+void	ft_pb(t_stacks *stack, int print);
+
+//Sortage
+
+void	ft_sort_tmp(int *temp_stack, int size);
+void	ft_sort_three_a(t_stacks *s);
+int		ft_sort(t_stacks *stack, int size);
+int		ft_push(t_stacks *stack, int len, int operation);
+
+//Quicksort
+
+void	ft_quicksort_3(t_stacks *stack, int len);
+int		ft_sort_small_b(t_stacks *s, int len);
+int		ft_get_mediane(int *pivot, int *stack, int size);
+int		ft_quicksort_a(t_stacks *stack, int len, int count);
+int		ft_quicksort_b(t_stacks *stack, int len, int count);
+
+//Bonus
+
+int		*ft_check_errors(char **argv);
+int		ft_check_opt(char *opt, t_stacks *stack);
+int		ft_strcmp(char *s1, char *s2);
+void	ft_checker(t_stacks *stack);
+void	ft_checker_instructions(t_stacks *stack);
+void	ft_checker_start(t_stacks *stack);
+void	ft_opt(t_stacks *stack, char *opt);
+void	ft_print_stacks(t_stacks *stack);
 
 #endif
